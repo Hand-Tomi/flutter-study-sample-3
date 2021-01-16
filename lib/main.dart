@@ -133,7 +133,17 @@ class _StopWatchPageState extends State<StopWatchPage> {
     }
   }
 
-  void _start() {}
+  // 1/100초에 한 번씩 time 변수를 1 증가.
+  void _start() {
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {
+        _time++;
+      });
+    });
+  }
 
-  void _pause() {}
+  // 타이머 취소
+  void _pause() {
+    _timer?.cancel();
+  }
 }
