@@ -96,7 +96,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                 backgroundColor: Colors.deepOrange,
-                onPressed: () {},
+                onPressed: _reset,
                 child: Icon(Icons.rotate_left),
               ),
             ),
@@ -148,5 +148,14 @@ class _StopWatchPageState extends State<StopWatchPage> {
   // 타이머 취소
   void _pause() {
     _timer?.cancel();
+  }
+
+  void _reset() {
+    setState(() {
+      _isRunning = false;
+      _timer?.cancel();
+      _lapTimes.clear();
+      _time = 0;
+    });
   }
 }
