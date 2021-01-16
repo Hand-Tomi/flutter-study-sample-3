@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +24,13 @@ class StopWatchPage extends StatefulWidget {
 }
 
 class _StopWatchPageState extends State<StopWatchPage> {
+  Timer _timer; // 타이머
+
+  var _time = 0; // 0.01초마다 1씩 증가시킬 정수형 변수
+  var _isRunning = false; // 현재 시작 상태를 나타낼 불리언 변수
+
+  List<String> _lapTimes = []; // 랩타임에 표시할 시간을 저장할 리스트
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
