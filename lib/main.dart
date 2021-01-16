@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,6 +31,12 @@ class _StopWatchPageState extends State<StopWatchPage> {
   var _isRunning = false; // 현재 시작 상태를 나타낼 불리언 변수
 
   List<String> _lapTimes = []; // 랩타임에 표시할 시간을 저장할 리스트
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
