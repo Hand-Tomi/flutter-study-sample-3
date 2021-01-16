@@ -122,5 +122,18 @@ class _StopWatchPageState extends State<StopWatchPage> {
     );
   }
 
-  void _clickButton() {}
+  // 시작 또는 일시정지 버튼 클릭
+  void _clickButton() {
+    _isRunning = !_isRunning;
+
+    if (_isRunning) {
+      _start();
+    } else {
+      _pause();
+    }
+  }
+
+  void _start() {}
+
+  void _pause() {}
 }
